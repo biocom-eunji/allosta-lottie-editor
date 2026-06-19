@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+/*
+ * 브랜드 키컬러 — Tailwind `brand` / `brand-hover` 유틸 생성.
+ * 여기 값은 빌드 기본값이며, 런타임에 applyBrandTheme()(tokens/colors.ts BRAND_HEX)가
+ * --color-brand / --color-brand-hover 를 덮어써 최종 권위를 가진다.
+ * Tailwind v4 의 bg-brand 등은 var(--color-brand) 를 참조하므로 런타임 주입이 그대로 반영됨.
+ */
+@theme {
+  --color-brand: #22c3bc;
+  --color-brand-hover: #1ba39d;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}

@@ -1,0 +1,1478 @@
+[
+  {
+    "collection": "Mono",
+    "name": "Neutral-50",
+    "label": "Neutral 50",
+    "family": "Neutral",
+    "hex": "#F3F5F7",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-100",
+    "label": "Neutral 100",
+    "family": "Neutral",
+    "hex": "#E1E3E8",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-200",
+    "label": "Neutral 200",
+    "family": "Neutral",
+    "hex": "#C4C7CD",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-300",
+    "label": "Neutral 300",
+    "family": "Neutral",
+    "hex": "#ACAEB5",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-400",
+    "label": "Neutral 400",
+    "family": "Neutral",
+    "hex": "#8A8D94",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-500",
+    "label": "Neutral 500",
+    "family": "Neutral",
+    "hex": "#72747B",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-600",
+    "label": "Neutral 600",
+    "family": "Neutral",
+    "hex": "#5A5C63",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-700",
+    "label": "Neutral 700",
+    "family": "Neutral",
+    "hex": "#46474D",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-800",
+    "label": "Neutral 800",
+    "family": "Neutral",
+    "hex": "#2C2E32",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Mono",
+    "name": "Neutral-900",
+    "label": "Neutral 900",
+    "family": "Neutral",
+    "hex": "#171719",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "WHBK",
+    "name": "BK",
+    "label": "Bk",
+    "family": "Bk",
+    "hex": "#000000",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "WHBK",
+    "name": "WH",
+    "label": "Wh",
+    "family": "Wh",
+    "hex": "#FFFFFF",
+    "alpha": 1,
+    "scopes": [
+      "FRAME_FILL",
+      "SHAPE_FILL",
+      "TEXT_FILL"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-50",
+    "label": "Mint 50",
+    "family": "Mint",
+    "hex": "#E4FCFC",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-100",
+    "label": "Mint 100",
+    "family": "Mint",
+    "hex": "#C2F7F6",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-200",
+    "label": "Mint 200",
+    "family": "Mint",
+    "hex": "#8BEAE5",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-300",
+    "label": "Mint 300",
+    "family": "Mint",
+    "hex": "#64D7D2",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-400",
+    "label": "Mint 400",
+    "family": "Mint",
+    "hex": "#22C3BC",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-500",
+    "label": "Mint 500",
+    "family": "Mint",
+    "hex": "#12A09A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-600",
+    "label": "Mint 600",
+    "family": "Mint",
+    "hex": "#157D78",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-700",
+    "label": "Mint 700",
+    "family": "Mint",
+    "hex": "#105E5A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-800",
+    "label": "Mint 800",
+    "family": "Mint",
+    "hex": "#093F3E",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Brand",
+    "name": "Mint-900",
+    "label": "Mint 900",
+    "family": "Mint",
+    "hex": "#082B2A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-50",
+    "label": "Green 50",
+    "family": "Green",
+    "hex": "#E9FBF5",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-100",
+    "label": "Green 100",
+    "family": "Green",
+    "hex": "#B5F7E1",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-200",
+    "label": "Green 200",
+    "family": "Green",
+    "hex": "#7AF0C6",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-300",
+    "label": "Green 300",
+    "family": "Green",
+    "hex": "#33D49A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-400",
+    "label": "Green 400",
+    "family": "Green",
+    "hex": "#12BA7E",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-500",
+    "label": "Green 500",
+    "family": "Green",
+    "hex": "#0B9D69",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-600",
+    "label": "Green 600",
+    "family": "Green",
+    "hex": "#108159",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-700",
+    "label": "Green 700",
+    "family": "Green",
+    "hex": "#0A6343",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-800",
+    "label": "Green 800",
+    "family": "Green",
+    "hex": "#074730",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "green-900",
+    "label": "Green 900",
+    "family": "Green",
+    "hex": "#082B1F",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-50",
+    "label": "Orange 50",
+    "family": "Orange",
+    "hex": "#FFF4EA",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-100",
+    "label": "Orange 100",
+    "family": "Orange",
+    "hex": "#FFD1A4",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-200",
+    "label": "Orange 200",
+    "family": "Orange",
+    "hex": "#FFB166",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-300",
+    "label": "Orange 300",
+    "family": "Orange",
+    "hex": "#FF932B",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-400",
+    "label": "Orange 400",
+    "family": "Orange",
+    "hex": "#F67900",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-500",
+    "label": "Orange 500",
+    "family": "Orange",
+    "hex": "#DB6600",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-600",
+    "label": "Orange 600",
+    "family": "Orange",
+    "hex": "#B55400",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-700",
+    "label": "Orange 700",
+    "family": "Orange",
+    "hex": "#884200",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-800",
+    "label": "Orange 800",
+    "family": "Orange",
+    "hex": "#602D00",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Orange-900",
+    "label": "Orange 900",
+    "family": "Orange",
+    "hex": "#361900",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-50",
+    "label": "Red 50",
+    "family": "Red",
+    "hex": "#FFE9E9",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-100",
+    "label": "Red 100",
+    "family": "Red",
+    "hex": "#FFC9C9",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-200",
+    "label": "Red 200",
+    "family": "Red",
+    "hex": "#FFA1A1",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-300",
+    "label": "Red 300",
+    "family": "Red",
+    "hex": "#F86F6F",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-400",
+    "label": "Red 400",
+    "family": "Red",
+    "hex": "#F04545",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-500",
+    "label": "Red 500",
+    "family": "Red",
+    "hex": "#D92020",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-600",
+    "label": "Red 600",
+    "family": "Red",
+    "hex": "#B51616",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-700",
+    "label": "Red 700",
+    "family": "Red",
+    "hex": "#8B0B0B",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-800",
+    "label": "Red 800",
+    "family": "Red",
+    "hex": "#5A0707",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Red-900",
+    "label": "Red 900",
+    "family": "Red",
+    "hex": "#2E0505",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-50",
+    "label": "Yellow 50",
+    "family": "Yellow",
+    "hex": "#FFF8D8",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-100",
+    "label": "Yellow 100",
+    "family": "Yellow",
+    "hex": "#FFEDA2",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-200",
+    "label": "Yellow 200",
+    "family": "Yellow",
+    "hex": "#FFE05F",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-300",
+    "label": "Yellow 300",
+    "family": "Yellow",
+    "hex": "#FFCE00",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-400",
+    "label": "Yellow 400",
+    "family": "Yellow",
+    "hex": "#F0B800",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-500",
+    "label": "Yellow 500",
+    "family": "Yellow",
+    "hex": "#E3A700",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-600",
+    "label": "Yellow 600",
+    "family": "Yellow",
+    "hex": "#C59000",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-700",
+    "label": "Yellow 700",
+    "family": "Yellow",
+    "hex": "#936C00",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-800",
+    "label": "Yellow 800",
+    "family": "Yellow",
+    "hex": "#604600",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Semantic",
+    "name": "Yellow-900",
+    "label": "Yellow 900",
+    "family": "Yellow",
+    "hex": "#3C2C00",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-50",
+    "label": "Blue 50",
+    "family": "Blue",
+    "hex": "#EFF3FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-100",
+    "label": "Blue 100",
+    "family": "Blue",
+    "hex": "#CDDAFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-200",
+    "label": "Blue 200",
+    "family": "Blue",
+    "hex": "#A3BCFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-300",
+    "label": "Blue 300",
+    "family": "Blue",
+    "hex": "#6391FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-400",
+    "label": "Blue 400",
+    "family": "Blue",
+    "hex": "#3470FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-500",
+    "label": "Blue 500",
+    "family": "Blue",
+    "hex": "#074EF6",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-600",
+    "label": "Blue 600",
+    "family": "Blue",
+    "hex": "#0740C8",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-700",
+    "label": "Blue 700",
+    "family": "Blue",
+    "hex": "#02319F",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-800",
+    "label": "Blue 800",
+    "family": "Blue",
+    "hex": "#072772",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "blue-900",
+    "label": "Blue 900",
+    "family": "Blue",
+    "hex": "#021C58",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-50",
+    "label": "Cyan 50",
+    "family": "Cyan",
+    "hex": "#E6FBFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-100",
+    "label": "Cyan 100",
+    "family": "Cyan",
+    "hex": "#C0F6FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-200",
+    "label": "Cyan 200",
+    "family": "Cyan",
+    "hex": "#82E9FB",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-300",
+    "label": "Cyan 300",
+    "family": "Cyan",
+    "hex": "#37DAF8",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-400",
+    "label": "Cyan 400",
+    "family": "Cyan",
+    "hex": "#05BDDF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-500",
+    "label": "Cyan 500",
+    "family": "Cyan",
+    "hex": "#00A5C2",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-600",
+    "label": "Cyan 600",
+    "family": "Cyan",
+    "hex": "#007E94",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-700",
+    "label": "Cyan 700",
+    "family": "Cyan",
+    "hex": "#005E6E",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-800",
+    "label": "Cyan 800",
+    "family": "Cyan",
+    "hex": "#003F49",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Cyan-900",
+    "label": "Cyan 900",
+    "family": "Cyan",
+    "hex": "#00252B",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-50",
+    "label": "Khaki 50",
+    "family": "Khaki",
+    "hex": "#F4F7EE",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-100",
+    "label": "Khaki 100",
+    "family": "Khaki",
+    "hex": "#DDE8C3",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-200",
+    "label": "Khaki 200",
+    "family": "Khaki",
+    "hex": "#C4D49E",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-300",
+    "label": "Khaki 300",
+    "family": "Khaki",
+    "hex": "#A8C072",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-400",
+    "label": "Khaki 400",
+    "family": "Khaki",
+    "hex": "#87A349",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-500",
+    "label": "Khaki 500",
+    "family": "Khaki",
+    "hex": "#6D8339",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-600",
+    "label": "Khaki 600",
+    "family": "Khaki",
+    "hex": "#54642E",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-700",
+    "label": "Khaki 700",
+    "family": "Khaki",
+    "hex": "#3E4B1F",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-800",
+    "label": "Khaki 800",
+    "family": "Khaki",
+    "hex": "#303919",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Khaki-900",
+    "label": "Khaki 900",
+    "family": "Khaki",
+    "hex": "#202610",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-50",
+    "label": "Light Blue 50",
+    "family": "Light Blue",
+    "hex": "#E5F6FE",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-100",
+    "label": "Light Blue 100",
+    "family": "Light Blue",
+    "hex": "#B9E9FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-200",
+    "label": "Light Blue 200",
+    "family": "Light Blue",
+    "hex": "#7ED6FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-300",
+    "label": "Light Blue 300",
+    "family": "Light Blue",
+    "hex": "#45C4FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-400",
+    "label": "Light Blue 400",
+    "family": "Light Blue",
+    "hex": "#08B1FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-500",
+    "label": "Light Blue 500",
+    "family": "Light Blue",
+    "hex": "#0090D7",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-600",
+    "label": "Light Blue 600",
+    "family": "Light Blue",
+    "hex": "#006FB5",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-700",
+    "label": "Light Blue 700",
+    "family": "Light Blue",
+    "hex": "#00538A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-800",
+    "label": "Light Blue 800",
+    "family": "Light Blue",
+    "hex": "#003659",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Light Blue-900",
+    "label": "Light Blue 900",
+    "family": "Light Blue",
+    "hex": "#00223C",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-50",
+    "label": "Pink 50",
+    "family": "Pink",
+    "hex": "#FFEDF4",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-100",
+    "label": "Pink 100",
+    "family": "Pink",
+    "hex": "#FFC9DA",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-200",
+    "label": "Pink 200",
+    "family": "Pink",
+    "hex": "#FF9ABA",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-300",
+    "label": "Pink 300",
+    "family": "Pink",
+    "hex": "#FF729E",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-400",
+    "label": "Pink 400",
+    "family": "Pink",
+    "hex": "#FF417E",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-500",
+    "label": "Pink 500",
+    "family": "Pink",
+    "hex": "#F81C62",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-600",
+    "label": "Pink 600",
+    "family": "Pink",
+    "hex": "#D50A4A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-700",
+    "label": "Pink 700",
+    "family": "Pink",
+    "hex": "#A40236",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-800",
+    "label": "Pink 800",
+    "family": "Pink",
+    "hex": "#77072A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Pink-900",
+    "label": "Pink 900",
+    "family": "Pink",
+    "hex": "#480419",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-50",
+    "label": "Purple 50",
+    "family": "Purple",
+    "hex": "#F7E6FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-100",
+    "label": "Purple 100",
+    "family": "Purple",
+    "hex": "#E9BAFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-200",
+    "label": "Purple 200",
+    "family": "Purple",
+    "hex": "#E09DFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-300",
+    "label": "Purple 300",
+    "family": "Purple",
+    "hex": "#D376FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-400",
+    "label": "Purple 400",
+    "family": "Purple",
+    "hex": "#C74CFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-500",
+    "label": "Purple 500",
+    "family": "Purple",
+    "hex": "#A924E5",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-600",
+    "label": "Purple 600",
+    "family": "Purple",
+    "hex": "#8A18C1",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-700",
+    "label": "Purple 700",
+    "family": "Purple",
+    "hex": "#6C1097",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-800",
+    "label": "Purple 800",
+    "family": "Purple",
+    "hex": "#510B74",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Purple-900",
+    "label": "Purple 900",
+    "family": "Purple",
+    "hex": "#32024A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-50",
+    "label": "Violet 50",
+    "family": "Violet",
+    "hex": "#F3EFFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-100",
+    "label": "Violet 100",
+    "family": "Violet",
+    "hex": "#D3C8FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-200",
+    "label": "Violet 200",
+    "family": "Violet",
+    "hex": "#B09CFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-300",
+    "label": "Violet 300",
+    "family": "Violet",
+    "hex": "#8E70FF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-400",
+    "label": "Violet 400",
+    "family": "Violet",
+    "hex": "#704CFF",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-500",
+    "label": "Violet 500",
+    "family": "Violet",
+    "hex": "#552CF4",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-600",
+    "label": "Violet 600",
+    "family": "Violet",
+    "hex": "#3C17CE",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-700",
+    "label": "Violet 700",
+    "family": "Violet",
+    "hex": "#2907B1",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-800",
+    "label": "Violet 800",
+    "family": "Violet",
+    "hex": "#1C057D",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  },
+  {
+    "collection": "Accent",
+    "name": "Violet-900",
+    "label": "Violet 900",
+    "family": "Violet",
+    "hex": "#0F004A",
+    "alpha": 1,
+    "scopes": [
+      "ALL_SCOPES"
+    ]
+  }
+]
