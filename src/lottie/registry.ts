@@ -22,12 +22,6 @@ import {
   type FeedbackParams,
 } from './generators/feedback'
 import {
-  generateEmptyBox, emptyBoxDefaults,
-  generateSearchEmpty, searchEmptyDefaults,
-  generateBellRing, bellRingDefaults,
-  type EmptyParams,
-} from './generators/emptyState'
-import {
   generateSpinnerOrbit, spinnerOrbitDefaults,
   generateSkeletonShimmer, skeletonShimmerDefaults,
   generatePullRefresh, pullRefreshDefaults,
@@ -52,7 +46,7 @@ const TEXT_MODE_CONTROL = {
   ],
 }
 
-export type Category = 'Loading' | 'Push' | 'Confetti' | 'Image' | 'Streak' | 'Feedback' | 'Empty'
+export type Category = 'Loading' | 'Push' | 'Confetti' | 'Image' | 'Streak' | 'Feedback'
 
 export interface AnimationDef {
   id: string
@@ -76,10 +70,9 @@ export const CATEGORY_DESC: Record<Category, string> = {
   Image: '이미지 기반 애니메이션 리소스입니다. 사진을 업로드해 스와이프/스캔/플래시 촬영 효과를 만들 수 있습니다.',
   Streak: '스트릭(연속 기록) 동기부여에 사용되는 그래픽 리소스입니다. 불꽃, 카운트, 요일 체크 등을 수정할 수 있습니다.',
   Feedback: '성공/오류/경고/좋아요 등 사용자 피드백 애니메이션입니다. 색상을 수정할 수 있습니다.',
-  Empty: '빈 상태/안내 애니메이션입니다. 데이터 없음, 검색 결과 없음, 알림 등에 사용합니다.',
 }
 
-export const CATEGORY_ORDER: Category[] = ['Push', 'Loading', 'Confetti', 'Image', 'Streak', 'Feedback', 'Empty']
+export const CATEGORY_ORDER: Category[] = ['Push', 'Loading', 'Confetti', 'Image', 'Streak', 'Feedback']
 
 export const ANIMATIONS: AnimationDef[] = [
   {
@@ -492,42 +485,6 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
     ],
     generate: (p) => generateHeartLike(p as FeedbackParams),
-  },
-  {
-    id: 'empty-box',
-    name: 'empty-box',
-    category: 'Empty',
-    loop: true,
-    defaultParams: emptyBoxDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '강조 색' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateEmptyBox(p as EmptyParams),
-  },
-  {
-    id: 'search-empty',
-    name: 'search-empty',
-    category: 'Empty',
-    loop: true,
-    defaultParams: searchEmptyDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '렌즈 색' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateSearchEmpty(p as EmptyParams),
-  },
-  {
-    id: 'bell-ring',
-    name: 'bell-ring',
-    category: 'Empty',
-    loop: true,
-    defaultParams: bellRingDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '종 색상' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateBellRing(p as EmptyParams),
   },
 ]
 
