@@ -15,8 +15,10 @@ import { generateImageScan, imageScanDefaults, type ImageScanParams } from './ge
 import { generateGradientFrame, gradientFrameDefaults, type GradientFrameParams } from './generators/gradientFrame'
 import { generateLoadingOrbit, loadingOrbitDefaults, type LoadingOrbitParams } from './generators/loadingOrbit'
 import { generateWillFlame, willFlameDefaults, type WillFlameParams } from './generators/willFlame'
+import { generateSpaceRide, spaceRideDefaults, type SpaceRideParams } from './generators/spaceRide'
+import { generateRocket, rocketDefaults, type RocketParams } from './generators/rocket'
 
-export type Category = 'Loading' | 'Confetti' | 'Streak' | 'Point' | 'Image'
+export type Category = 'Loading' | 'Confetti' | 'Streak' | 'Point' | 'Image' | 'Space'
 
 export interface AnimationDef {
   id: string
@@ -39,9 +41,10 @@ export const CATEGORY_DESC: Record<Category, string> = {
   Streak: '스트릭(연속 기록) 애니메이션입니다. 불꽃, 주간 진행 바 등을 수정할 수 있습니다.',
   Point: '포인트/리워드 적립 애니메이션입니다. 코인 획득, 완료 체크 등을 수정할 수 있습니다.',
   Image: '이미지 기반 애니메이션입니다. 사진을 업로드해 스와이프/스캔 효과 등을 만들 수 있습니다.',
+  Space: '우주/로켓 테마 애니메이션입니다. 속도 등을 수정할 수 있습니다.',
 }
 
-export const CATEGORY_ORDER: Category[] = ['Loading', 'Confetti', 'Streak', 'Point', 'Image']
+export const CATEGORY_ORDER: Category[] = ['Loading', 'Confetti', 'Streak', 'Point', 'Image', 'Space']
 
 export const ANIMATIONS: AnimationDef[] = [
   {
@@ -280,6 +283,30 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
     ],
     generate: (p) => generateCoinFlip(p as CoinFlipParams),
+  },
+  {
+    id: 'space-ride',
+    name: 'space-ride',
+    category: 'Space',
+    loop: true,
+    previewFrame: 176,
+    defaultParams: spaceRideDefaults,
+    controls: [
+      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
+    ],
+    generate: (p) => generateSpaceRide(p as SpaceRideParams),
+  },
+  {
+    id: 'rocket',
+    name: 'rocket',
+    category: 'Space',
+    loop: true,
+    previewFrame: 55,
+    defaultParams: rocketDefaults,
+    controls: [
+      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
+    ],
+    generate: (p) => generateRocket(p as RocketParams),
   },
 ]
 
