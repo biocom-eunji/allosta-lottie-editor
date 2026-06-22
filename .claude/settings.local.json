@@ -60,7 +60,11 @@
       "Bash(pkill -f \"esbuild --service\")",
       "Bash(lsof -nP -iTCP:5174 -sTCP:LISTEN)",
       "Bash(git config *)",
-      "Bash(git init *)"
+      "Bash(git init *)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" --max-time 15 https://biocom-eunji.github.io/allosta-lottie-editor/)",
+      "Bash(curl -s --max-time 15 https://biocom-eunji.github.io/allosta-lottie-editor/)"
     ]
   }
 }

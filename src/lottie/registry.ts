@@ -13,6 +13,7 @@ import { generateStreakFlame, streakFlameDefaults, type StreakFlameParams } from
 import { generateStreakDayCheck, streakDayCheckDefaults, type StreakDayCheckParams } from './generators/streakDayCheck'
 import { generateStreakWeekRow, streakWeekRowDefaults, type StreakWeekRowParams } from './generators/streakWeekRow'
 import { generateStreakBroken, streakBrokenDefaults, type StreakBrokenParams } from './generators/streakBroken'
+import { generateCoinFlip, coinFlipDefaults, type CoinFlipParams } from './generators/coinFlip'
 import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from './generators/imageSwipe'
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
 
@@ -300,6 +301,18 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'fadeSpeed', label: '페이드 속도', min: 50, max: 200, step: 5, unit: '%' },
     ],
     generate: (p) => generateStreakBroken(p as StreakBrokenParams),
+  },
+  {
+    id: 'coin-flip',
+    name: 'coin-flip',
+    category: 'Streak',
+    loop: true,
+    previewFrame: 95,
+    defaultParams: coinFlipDefaults,
+    controls: [
+      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
+    ],
+    generate: (p) => generateCoinFlip(p as CoinFlipParams),
   },
 ]
 
