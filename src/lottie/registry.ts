@@ -6,8 +6,6 @@ import { loader3dotDefaults, generateLoader3Dot, type Loader3DotParams } from '.
 import { progressRingDefaults, generateProgressRing, type ProgressRingParams } from './generators/progressRing'
 import { confettiStarBurstDefaults, generateConfettiStarBurst, type ConfettiStarBurstParams } from './generators/confettiStarBurst'
 import { confettiRainDefaults, generateConfettiRain, type ConfettiRainParams } from './generators/confettiRain'
-import { generatePushToast, pushSoloSlideUpDefaults, type PushToastParams } from './generators/pushToast'
-import { generatePushMockup, pushSoloMockupScreenDefaults, type PushMockupParams } from './generators/pushMockup'
 import { generateStreakFlame, streakFlameDefaults, type StreakFlameParams } from './generators/streakFlame'
 import { generateStreakDayCheck, streakDayCheckDefaults, type StreakDayCheckParams } from './generators/streakDayCheck'
 import { generateStreakWeekRow, streakWeekRowDefaults, type StreakWeekRowParams } from './generators/streakWeekRow'
@@ -16,17 +14,7 @@ import { generateCoinFlip, coinFlipDefaults, type CoinFlipParams } from './gener
 import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from './generators/imageSwipe'
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
 
-const TEXT_MODE_CONTROL = {
-  type: 'segmented' as const,
-  key: 'textMode',
-  label: '텍스트 처리',
-  options: [
-    { value: 'raster', label: 'Canvas 래스터' },
-    { value: 'overlay', label: 'RN 오버레이' },
-  ],
-}
-
-export type Category = 'Loading' | 'Push' | 'Confetti' | 'Image' | 'Streak'
+export type Category = 'Loading' | 'Confetti' | 'Image' | 'Streak'
 
 export interface AnimationDef {
   id: string
@@ -44,14 +32,13 @@ export interface AnimationDef {
 }
 
 export const CATEGORY_DESC: Record<Category, string> = {
-  Push: '푸시 알림에 사용되는 그래픽 리소스입니다. 색상, 텍스트, 아이콘 등을 수정할 수 있습니다.',
   Loading: '로딩 애니메이션 그래픽 리소스입니다. 크기, 라운딩, 스트로크 등을 수정할 수 있습니다.',
   Confetti: '컨페티/축하 애니메이션 그래픽 리소스입니다. 파티클 이미지를 교체하여 커스텀 컨페티를 만들 수 있습니다.',
   Image: '이미지 기반 애니메이션 리소스입니다. 사진을 업로드해 스와이프/스캔/플래시 촬영 효과를 만들 수 있습니다.',
   Streak: '스트릭(연속 기록) 동기부여에 사용되는 그래픽 리소스입니다. 불꽃, 카운트, 요일 체크 등을 수정할 수 있습니다.',
 }
 
-export const CATEGORY_ORDER: Category[] = ['Push', 'Loading', 'Confetti', 'Image', 'Streak']
+export const CATEGORY_ORDER: Category[] = ['Loading', 'Confetti', 'Image', 'Streak']
 
 export const ANIMATIONS: AnimationDef[] = [
   {
@@ -181,37 +168,6 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'speed', label: '스캔 속도', min: 50, max: 200, step: 5, unit: '%' },
     ],
     generate: (p) => generateImageScan(p as ImageScanParams),
-  },
-  {
-    id: 'push-solo-slide-up',
-    name: 'push-solo-slide-up',
-    category: 'Push',
-    defaultParams: pushSoloSlideUpDefaults,
-    controls: [
-      { type: 'text', key: 'title', label: 'Header Title', placeholder: '제목' },
-      { type: 'text', key: 'content', label: 'Content text', placeholder: '내용' },
-      { type: 'color', key: 'titleColor', label: '제목 색상' },
-      { type: 'color', key: 'contentColor', label: '내용 색상' },
-      { type: 'color', key: 'iconColor', label: '아이콘 색상' },
-      TEXT_MODE_CONTROL,
-    ],
-    generate: (p) => generatePushToast(p as PushToastParams, 'push-solo-slide-up'),
-  },
-  {
-    id: 'push-solo-mockup-screen',
-    name: 'push-solo-mockup-screen',
-    category: 'Push',
-    defaultParams: pushSoloMockupScreenDefaults,
-    controls: [
-      { type: 'text', key: 'title', label: 'Header Title', placeholder: '제목' },
-      { type: 'text', key: 'content', label: 'Content text', placeholder: '내용' },
-      { type: 'color', key: 'titleColor', label: '제목 색상' },
-      { type: 'color', key: 'contentColor', label: '내용 색상' },
-      { type: 'image', key: 'thumbnail', label: 'Thumbnail 이미지' },
-      { type: 'image', key: 'screenImage', label: 'Screen Image' },
-      TEXT_MODE_CONTROL,
-    ],
-    generate: (p) => generatePushMockup(p as PushMockupParams, 'push-solo-mockup-screen', { withImages: true }),
   },
   {
     id: 'streak-flame',
