@@ -127,28 +127,27 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
     return root({ name: 'streak-will-flame', w: W, h: H, op: P, layers: [flameLayer, glow] })
   }
 
-  // ── receive: one-shot 낙하 + 바운스 + 글로우 ──
+  // ── receive: one-shot 팝인(ease-out-back 오버슈트) + 살짝 위로 settle + 글로우 ──
   const r = (n: number) => Math.round(n * sf)
-  const settle = r(32)
-  const op = r(96)
+  const settle = r(30)
+  const op = r(84)
   const body = willFlameBody({ flameColor: p.flameColor, coreColor: p.coreColor, scl, period: op, flicker: 0.6 })
 
   const flameLayer = shapeLayer({
     name: 'will-flame',
     shapes: [
       group([body], transform({
-        // 위에서 낙하 → 임팩트 오버슈트 → 정착
+        // 살짝 아래에서 위로 settle
         p: anim(keyframes([
-          { t: 0, s: [cx, cy - 160], ease: 'in' },
-          { t: r(16), s: [cx, cy + 12], ease: 'out' },
-          { t: r(24), s: [cx, cy - 5], ease: 'in-out' },
+          { t: 0, s: [cx, cy + 10], ease: 'out' },
+          { t: r(18), s: [cx, cy - 4], ease: 'out' },
           { t: settle, s: [cx, cy], ease: 'in-out' },
         ]), 2),
-        // 낙하 임팩트 스쿼시 → 정착
+        // scale 0 → 오버슈트(톡) → 정착 (ease-out-back)
         s: anim(keyframes([
-          { t: 0, s: [70, 70], ease: 'in' },
-          { t: r(16), s: [112, 90], ease: 'out' },
-          { t: r(24), s: [96, 106], ease: 'in-out' },
+          { t: 0, s: [0, 0], ease: 'out' },
+          { t: r(12), s: [114, 108], ease: 'out' }, // 오버슈트(세로 더 늘려 "톡")
+          { t: r(20), s: [95, 103], ease: 'in-out' },
           { t: settle, s: [100, 100], ease: 'in-out' },
         ]), 6),
       }), 'pos'),
@@ -171,17 +170,16 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
         transform({
           p: val([cx, cy + p.size * 0.06], 2),
           o: anim(keyframes([
-            { t: 0, s: [0], ease: 'in-out' },
-            { t: r(16), s: [0], ease: 'out' },
-            { t: r(26), s: [58], ease: 'in-out' }, // 임팩트 직후 확 퍼짐
-            { t: r(46), s: [34], ease: 'in-out' },
-            { t: r(70), s: [44], ease: 'in-out' },
+            { t: 0, s: [0], ease: 'out' },
+            { t: r(12), s: [56], ease: 'in-out' }, // 팝인과 함께 확 퍼짐
+            { t: r(34), s: [34], ease: 'in-out' },
+            { t: r(60), s: [44], ease: 'in-out' },
             { t: op, s: [34], ease: 'in-out' },
           ]), 11),
           s: anim(keyframes([
-            { t: r(16), s: [60, 60], ease: 'out' },
-            { t: r(28), s: [108, 108], ease: 'out' },
-            { t: r(46), s: [96, 96], ease: 'in-out' },
+            { t: 0, s: [50, 50], ease: 'out' },
+            { t: r(16), s: [108, 108], ease: 'out' },
+            { t: r(34), s: [96, 96], ease: 'in-out' },
             { t: op, s: [100, 100], ease: 'in-out' },
           ]), 6),
         }),
@@ -192,5 +190,6 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
     op,
   })
 
+  // z순서(배열 앞=위): 불꽃 > 글로우. (블룸은 2단계에서 글로우와 불꽃 사이에 삽입)
   return root({ name: 'streak-will-flame', w: W, h: H, op, layers: [flameLayer, glow] })
 }
