@@ -14,6 +14,7 @@ import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from '.
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
 import { generateGradientFrame, gradientFrameDefaults, type GradientFrameParams } from './generators/gradientFrame'
 import { generateLoadingOrbit, loadingOrbitDefaults, type LoadingOrbitParams } from './generators/loadingOrbit'
+import { generateWillFlame, willFlameDefaults, type WillFlameParams } from './generators/willFlame'
 
 export type Category = 'Loading' | 'Confetti' | 'Streak' | 'Point' | 'Image'
 
@@ -210,6 +211,31 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'size', label: '크기', min: 80, max: 240, step: 1, unit: 'px' },
     ],
     generate: (p) => generateStreakFlame(p as StreakFlameParams),
+  },
+  {
+    id: 'streak-will-flame',
+    name: 'streak-will-flame',
+    category: 'Streak',
+    loop: true,
+    previewFrame: 40,
+    defaultParams: willFlameDefaults,
+    controls: [
+      {
+        type: 'segmented',
+        key: 'mode',
+        label: '모드',
+        options: [
+          { value: 'icon', label: '아이콘(플리커)' },
+          { value: 'receive', label: '받기(낙하)' },
+        ],
+      },
+      { type: 'color', key: 'flameColor', label: '불꽃 색', allowGradient: true },
+      { type: 'color', key: 'coreColor', label: '코어 색' },
+      { type: 'color', key: 'glowColor', label: '글로우 색' },
+      { type: 'slider', key: 'size', label: '크기', min: 48, max: 240, step: 1, unit: 'px' },
+      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
+    ],
+    generate: (p) => generateWillFlame(p as WillFlameParams),
   },
   {
     id: 'point-check',

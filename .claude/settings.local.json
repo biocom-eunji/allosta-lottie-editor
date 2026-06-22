@@ -69,7 +69,8 @@
       "Bash(node -e \"const p=require\\('./package.json'\\);console.log\\(JSON.stringify\\({...p.dependencies,...p.devDependencies},null,1\\)\\)\")",
       "Bash(npm i *)",
       "Bash(node ./probe-orbit.mjs)",
-      "Bash(node scripts/bake-orbit.mjs)"
+      "Bash(node scripts/bake-orbit.mjs)",
+      "Bash(node -e 'const t=require\\(\"./src/tokens/system-tokens.gen.json\"\\); console.log\\(Array.isArray\\(t\\)?\"array len \"+t.length:\"keys: \"+Object.keys\\(t\\).join\\(\", \"\\)\\); console.log\\(JSON.stringify\\(t\\).slice\\(0,400\\)\\)')"
     ]
   }
 }
