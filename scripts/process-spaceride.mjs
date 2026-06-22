@@ -31,6 +31,57 @@ collectRefs(d.layers)
 collectRefs(comp0.layers)
 d.assets = d.assets.filter((a) => a.id === 'comp_0' || usedRefs.has(a.id))
 
+// ── 기우는(tilt) 모션 제거 + 루프 크롭 ──
+// 분석(자기유사도): 연기는 누적형 1-pass라 긴 루프 불가, 최적 루프 = START 135 / 길이 35f(플레임 1주기).
+const START = 135
+const P = 35
+
+// 애니메이션 prop 선형 샘플
+const sampleProp = (pr, t) => {
+  const k = pr.k
+  if (t <= k[0].t) return k[0].s
+  if (t >= k[k.length - 1].t) return k[k.length - 1].s
+  for (let i = 0; i < k.length - 1; i++) {
+    if (t >= k[i].t && t <= k[i + 1].t) {
+      const u = (t - k[i].t) / ((k[i + 1].t - k[i].t) || 1)
+      return k[i].s.map((v, j) => v + (k[i + 1].s[j] - v) * u)
+    }
+  }
+  return k[k.length - 1].s
+}
+// ind2(Rockit) 날개/그룹 tilt(p 애니메이션)를 START 시점 포즈로 freeze
+const freezeTilt = (it) => {
+  for (const s of it) {
+    if (s.ty === 'tr' && s.p && s.p.a === 1) s.p = { a: 0, k: sampleProp(s.p, START), ix: s.p.ix || 2 }
+    if (s.ty === 'gr') freezeTilt(s.it)
+  }
+}
+const L2 = comp0.layers.find((L) => L.ind === 2)
+if (L2 && L2.shapes) freezeTilt(L2.shapes)
+
+// 시간 시프트: 키프레임 t + 레이어 ip/op/st 를 -START
+const shiftTimes = (node, delta) => {
+  if (Array.isArray(node)) { node.forEach((n) => shiftTimes(n, delta)); return }
+  if (node && typeof node === 'object') {
+    if (node.a === 1 && Array.isArray(node.k) && node.k[0] && typeof node.k[0].t === 'number') {
+      node.k.forEach((kf) => (kf.t += delta)); return
+    }
+    for (const k of Object.keys(node)) shiftTimes(node[k], delta)
+  }
+}
+for (const L of comp0.layers) {
+  shiftTimes(L.ks, -START)
+  if (L.shapes) shiftTimes(L.shapes, -START)
+  if (typeof L.ip === 'number') L.ip -= START
+  if (typeof L.op === 'number') L.op -= START
+  if (typeof L.st === 'number') L.st -= START
+}
+// 루프 경계
+const main = d.layers[0]
+main.ip = 0; main.op = P; main.st = 0
+d.ip = 0; d.op = P
+
 fs.writeFileSync(OUT, JSON.stringify(d))
 console.log(`space-ride: comp_0 layers ${before}→${comp0.layers.length}, assets→${d.assets.length} [${d.assets.map((a) => a.id)}]`)
+console.log(`tilt freeze(ind2) + 루프 크롭: op ${353}→${P}f (START=${START})`)
 console.log('kept layers:', comp0.layers.map((L) => `${L.ind}:${L.nm}`).join(' | '))

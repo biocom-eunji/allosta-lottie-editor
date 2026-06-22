@@ -289,7 +289,7 @@ export const ANIMATIONS: AnimationDef[] = [
     name: 'space-ride',
     category: 'Space',
     loop: true,
-    previewFrame: 176,
+    previewFrame: 17,
     defaultParams: spaceRideDefaults,
     controls: [
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
