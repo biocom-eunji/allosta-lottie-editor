@@ -158,6 +158,15 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
   const bloomScl = ((p.size * BLOOM_SPREAD) / BLOOM_W) * 100
   const bloomLayers = structuredClone(bloomSource.layers) as Layer[]
   recolorBloom(bloomLayers, p.bloomColor.hex)
+  // petal 위치를 "펴진(open)" 상태로 고정 → 하단에서 솟지 않고 제자리에서 펴짐.
+  // (회전/path morph/opacity 는 유지, 펼침 모션은 precomp scale 로 부여)
+  for (const L of bloomLayers) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const pp = L.ks?.p as any
+    if (pp && pp.a === 1 && Array.isArray(pp.k)) {
+      L.ks.p = { a: 0, k: pp.k[pp.k.length - 1].s, ix: pp.ix || 2 }
+    }
+  }
   const bloomOp = Math.round(bloomSource.op * sf)
   const op = Math.max(bloomOp, rd(84))
 
@@ -171,7 +180,12 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
     ks: transform({
       a: val([BLOOM_OPEN_CENTER[0], BLOOM_OPEN_CENTER[1]], 1),
       p: val([cx, cy], 2),
-      s: val([bloomScl, bloomScl], 6),
+      // open center 기준 scale 0 → 오버슈트 → 100 : 가운데에서 펴짐
+      s: anim(keyframes([
+        { t: 0, s: [0, 0], ease: 'out' },
+        { t: r(14), s: [bloomScl * 1.08, bloomScl * 1.08], ease: 'out' },
+        { t: r(24), s: [bloomScl, bloomScl], ease: 'in-out' },
+      ]), 6),
     }),
     ao: 0,
     w: bloomSource.w,
