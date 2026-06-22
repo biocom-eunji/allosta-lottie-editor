@@ -14,7 +14,7 @@ import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from '.
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
 import { generateGradientFrame, gradientFrameDefaults, type GradientFrameParams } from './generators/gradientFrame'
 
-export type Category = 'Loading' | 'Confetti' | 'Image' | 'Streak'
+export type Category = 'Loading' | 'Confetti' | 'Streak' | 'Point' | 'Image'
 
 export interface AnimationDef {
   id: string
@@ -32,18 +32,19 @@ export interface AnimationDef {
 }
 
 export const CATEGORY_DESC: Record<Category, string> = {
-  Loading: '로딩 애니메이션 그래픽 리소스입니다. 크기, 라운딩, 스트로크 등을 수정할 수 있습니다.',
-  Confetti: '컨페티/축하 애니메이션 그래픽 리소스입니다. 파티클 이미지를 교체하여 커스텀 컨페티를 만들 수 있습니다.',
-  Image: '이미지 기반 애니메이션 리소스입니다. 사진을 업로드해 스와이프/스캔/플래시 촬영 효과를 만들 수 있습니다.',
-  Streak: '스트릭(연속 기록) 동기부여에 사용되는 그래픽 리소스입니다. 불꽃, 카운트, 요일 체크 등을 수정할 수 있습니다.',
+  Loading: '로딩/진행 인디케이터 애니메이션입니다. 크기, 라운딩, 스트로크, 속도 등을 수정할 수 있습니다.',
+  Confetti: '축하/컨페티 연출 애니메이션입니다. 색상·밀도·파티클 등을 수정할 수 있습니다.',
+  Streak: '스트릭(연속 기록) 애니메이션입니다. 불꽃, 주간 진행 바 등을 수정할 수 있습니다.',
+  Point: '포인트/리워드 적립 애니메이션입니다. 코인 획득, 완료 체크 등을 수정할 수 있습니다.',
+  Image: '이미지 기반 애니메이션입니다. 사진을 업로드해 스와이프/스캔 효과 등을 만들 수 있습니다.',
 }
 
-export const CATEGORY_ORDER: Category[] = ['Loading', 'Confetti', 'Image', 'Streak']
+export const CATEGORY_ORDER: Category[] = ['Loading', 'Confetti', 'Streak', 'Point', 'Image']
 
 export const ANIMATIONS: AnimationDef[] = [
   {
-    id: 'gradient-loader',
-    name: 'gradient-loader',
+    id: 'loading-squircle',
+    name: 'loading-squircle',
     category: 'Loading',
     defaultParams: gradientLoaderDefaults,
     controls: [
@@ -56,8 +57,8 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateGradientLoader(p as GradientLoaderParams),
   },
   {
-    id: 'ripple',
-    name: 'ripple',
+    id: 'loading-ripple',
+    name: 'loading-ripple',
     category: 'Loading',
     defaultParams: rippleDefaults,
     controls: [
@@ -68,8 +69,8 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateRipple(p as RippleParams),
   },
   {
-    id: 'loader-3dot',
-    name: 'loader-3dot',
+    id: 'loading-dots',
+    name: 'loading-dots',
     category: 'Loading',
     defaultParams: loader3dotDefaults,
     controls: [
@@ -82,8 +83,8 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateLoader3Dot(p as Loader3DotParams),
   },
   {
-    id: 'progress-gradient',
-    name: 'progress-gradient',
+    id: 'loading-spinner',
+    name: 'loading-spinner',
     category: 'Loading',
     defaultParams: progressRingDefaults,
     controls: [
@@ -93,8 +94,8 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateProgressRing(p as ProgressRingParams),
   },
   {
-    id: 'confetti-star-burst',
-    name: 'confetti-star-burst',
+    id: 'confetti-burst',
+    name: 'confetti-burst',
     category: 'Confetti',
     loop: false,
     previewFrame: 48,
@@ -170,8 +171,8 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateImageScan(p as ImageScanParams),
   },
   {
-    id: 'gradient',
-    name: 'gradient',
+    id: 'image-gradient',
+    name: 'image-gradient',
     category: 'Image',
     loop: true,
     previewFrame: 90,
@@ -198,9 +199,9 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateStreakFlame(p as StreakFlameParams),
   },
   {
-    id: 'streak-day-check',
-    name: 'streak-day-check',
-    category: 'Streak',
+    id: 'point-check',
+    name: 'point-check',
+    category: 'Point',
     defaultParams: streakDayCheckDefaults,
     loop: false,
     previewFrame: 100,
@@ -214,8 +215,8 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateStreakDayCheck(p as StreakDayCheckParams),
   },
   {
-    id: 'streak-week-row',
-    name: 'streak-week-row',
+    id: 'streak-week',
+    name: 'streak-week',
     category: 'Streak',
     defaultParams: streakWeekRowDefaults,
     loop: false,
@@ -230,9 +231,9 @@ export const ANIMATIONS: AnimationDef[] = [
     generate: (p) => generateStreakWeekRow(p as StreakWeekRowParams),
   },
   {
-    id: 'coin-flip',
-    name: 'coin-flip',
-    category: 'Streak',
+    id: 'point-coin',
+    name: 'point-coin',
+    category: 'Point',
     loop: true,
     previewFrame: 95,
     defaultParams: coinFlipDefaults,
