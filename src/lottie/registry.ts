@@ -264,8 +264,7 @@ export const ANIMATIONS: AnimationDef[] = [
     controls: [
       { type: 'color', key: 'completeColor', label: '완료색', allowGradient: true },
       { type: 'color', key: 'incompleteColor', label: '미완료색' },
-      { type: 'slider', key: 'cells', label: '칸 개수', min: 3, max: 14, step: 1 },
-      { type: 'slider', key: 'completedCount', label: '완료 개수', min: 0, max: 14, step: 1 },
+      { type: 'slider', key: 'completedCount', label: '완료 개수', min: 0, max: 7, step: 1 },
       { type: 'slider', key: 'staggerDelay', label: 'Stagger 딜레이', min: 0, max: 20, step: 1, unit: 'f' },
     ],
     generate: (p) => generateStreakWeekRow(p as StreakWeekRowParams),
