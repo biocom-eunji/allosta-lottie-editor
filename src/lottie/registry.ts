@@ -12,6 +12,7 @@ import { generateStreakWeekRow, streakWeekRowDefaults, type StreakWeekRowParams 
 import { generateCoinFlip, coinFlipDefaults, type CoinFlipParams } from './generators/coinFlip'
 import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from './generators/imageSwipe'
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
+import { generateGradientFrame, gradientFrameDefaults, type GradientFrameParams } from './generators/gradientFrame'
 
 export type Category = 'Loading' | 'Confetti' | 'Image' | 'Streak'
 
@@ -167,6 +168,18 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'speed', label: '스캔 속도', min: 50, max: 200, step: 5, unit: '%' },
     ],
     generate: (p) => generateImageScan(p as ImageScanParams),
+  },
+  {
+    id: 'gradient',
+    name: 'gradient',
+    category: 'Image',
+    loop: true,
+    previewFrame: 90,
+    defaultParams: gradientFrameDefaults,
+    controls: [
+      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
+    ],
+    generate: (p) => generateGradientFrame(p as GradientFrameParams),
   },
   {
     id: 'streak-flame',
