@@ -1,6 +1,6 @@
 import { anim, ellipse, fill, group, keyframes, resetInd, root, shapeLayer, transform, val } from '../builders'
 import { getToken, hexToRgb } from '../../tokens/colors'
-import { FLAME_H, flameInnerPath, flameOuterPath } from './flameShape'
+import { FLAME_H, FLAME_INNER_POS, flameInnerPath, flameOuterPath } from './flameShape'
 import type { ColorValue, Params } from '../controls'
 import type { Layer, LottieJSON, ShapeItem } from '../types'
 
@@ -47,6 +47,8 @@ export function generateStreakBroken(p: StreakBrokenParams): LottieJSON {
   const flame = group(
     [
       group([flameInnerPath(), fill(getToken('Semantic/Yellow-50'), 100)], transform({
+        p: val([FLAME_INNER_POS[0], FLAME_INNER_POS[1]], 2),
+        a: val([0, 0], 1),
         o: anim(keyframes([{ t: 0, s: [100] }, { t: f(0.45), s: [0] }]), 11),
       }), 'inner'),
       group([flameOuterPath(), outerFill], transform(), 'outer'),

@@ -1,6 +1,6 @@
 import { anim, ellipse, fill, group, keyframes, radialGlow, resetInd, root, shapeLayer, transform, val } from '../builders'
 import { getToken } from '../../tokens/colors'
-import { FLAME_H, flameInnerPath, flameOuterPath, outerPaint } from './flameShape'
+import { FLAME_H, FLAME_INNER_POS, flameInnerPath, flameOuterPath, outerPaint } from './flameShape'
 import type { ColorValue, Params } from '../controls'
 import type { Layer, LottieJSON } from '../types'
 
@@ -79,10 +79,12 @@ export function generateStreakFlame(p: StreakFlameParams): LottieJSON {
   const flame = group(
     [
       group([flameInnerPath(), fill(p.coreColor.hex, p.coreColor.opacity)], transform({
-        // 내부 불꽃 독립 펄스
+        // 내부 불꽃: 자기 중심에 배치(앵커 0,0) → 펄스 시 형태 유지
+        p: val([FLAME_INNER_POS[0], FLAME_INNER_POS[1]], 2),
+        a: val([0, 0], 1),
         s: anim(keyframes([
           { t: 0, s: [100, 100], ease: 'in-out' },
-          { t: Math.round(P * 0.45), s: [88, 112], ease: 'in-out' },
+          { t: Math.round(P * 0.45), s: [90, 110], ease: 'in-out' },
           { t: P, s: [100, 100], ease: 'in-out' },
         ]), 6),
       }), 'inner'),
