@@ -1,6 +1,6 @@
 import { anim, ellipse, fill, group, keyframes, radialGlow, resetInd, root, shapeLayer, transform, val } from '../builders'
 import { getToken } from '../../tokens/colors'
-import { FLAME_H, FLAME_INNER_POS, flameInnerPath, flameOuterPath, outerPaint } from './flameShape'
+import { WILL_CORE_CENTER, WILL_H, willCorePath, willOuterPaint, willOuterPath, willSparkPath } from './willFlameShape'
 import type { ColorValue, Params } from '../controls'
 import type { LottieJSON, ShapeItem } from '../types'
 
@@ -33,7 +33,7 @@ export const willFlameDefaults: WillFlameParams = {
       { pos: 1, hex: getToken('Accent/Light Blue-500') }, // 아래(밑동) 진한 파랑
     ],
   },
-  coreColor: { mode: 'solid', hex: getToken('Accent/Light Blue-50'), opacity: 100 },
+  coreColor: { mode: 'solid', hex: getToken('Semantic/Yellow-50'), opacity: 100 },
   glowColor: { mode: 'solid', hex: getToken('Accent/Light Blue-400'), opacity: 100 },
   size: 150,
   speed: 100,
@@ -46,11 +46,12 @@ export const willFlameDefaults: WillFlameParams = {
 export function willFlameBody(opts: { flameColor: ColorValue; coreColor: ColorValue; scl: number; period: number; flicker?: number }): ShapeItem {
   const P = Math.max(2, Math.round(opts.period))
   const fl = opts.flicker ?? 1
+  // 코어: path 가 절대좌표(원점기준)이므로 자기 중심(WILL_CORE_CENTER)에 앵커=포지션을 두고 펄스
   const inner = group(
-    [flameInnerPath(), fill(opts.coreColor.hex, opts.coreColor.opacity)],
+    [willCorePath(), fill(opts.coreColor.hex, opts.coreColor.opacity)],
     transform({
-      p: val([FLAME_INNER_POS[0], FLAME_INNER_POS[1]], 2),
-      a: val([0, 0], 1),
+      p: val([WILL_CORE_CENTER[0], WILL_CORE_CENTER[1]], 2),
+      a: val([WILL_CORE_CENTER[0], WILL_CORE_CENTER[1]], 1),
       s: anim(keyframes([
         { t: 0, s: [100, 100], ease: 'in-out' },
         { t: Math.round(P * 0.45), s: [100 - 10 * fl, 100 + 10 * fl], ease: 'in-out' },
@@ -59,7 +60,8 @@ export function willFlameBody(opts: { flameColor: ColorValue; coreColor: ColorVa
     }),
     'inner',
   )
-  const outer = group([flameOuterPath(), outerPaint(opts.flameColor)], transform(), 'outer')
+  // 외곽 + 스파크(동색) → 하나의 fill 공유
+  const outer = group([willOuterPath(), willSparkPath(), willOuterPaint(opts.flameColor)], transform(), 'outer')
   return group(
     [inner, outer],
     transform({
@@ -86,7 +88,7 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
   const sf = 100 / speed // 속도 보정 계수
   const cx = W / 2
   const cy = H / 2
-  const scl = (p.size / FLAME_H) * 100
+  const scl = (p.size / WILL_H) * 100
   const glowSize = p.size * 2.2
 
   if (p.mode === 'icon') {
