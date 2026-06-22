@@ -100,7 +100,6 @@ export const ANIMATIONS: AnimationDef[] = [
     category: 'Loading',
     loop: true,
     previewFrame: 100,
-    previewDim: true,
     defaultParams: loadingOrbitDefaults,
     controls: [
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
