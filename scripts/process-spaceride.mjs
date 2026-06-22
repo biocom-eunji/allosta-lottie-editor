@@ -1,8 +1,8 @@
 // Space Ride.json → src/lottie/sources/space-ride.json
-//  · 행성 삭제: Purple 토성(44,45,46,47) / 지구·달(48,49,50,56) / 소행성+점구름(51,52,53,54,55)
-//  · 연기 회색 점 삭제: S 1 Outlines 점들(8~39) + Right smoke(40, comp_1)
-//  · 배경(59)을 딤 단색으로 교체. 미사용 asset(comp_1/2/3) 제거.
-//  · 유지: 로켓(2,3,6,7), 뭉게구름 본체 smoke base(43), 별(57), 스피드라인(58)
+//  · 행성 삭제: Purple 토성(44,45,46,47) / 지구(49,56) / 달=깜빡이는 회색 점(48,50) / 소행성+점구름(51,52,53,54,55)
+//  · 배경 별(57) + 보라색 줄무늬 cky lines(58) 삭제
+//  · 배경(59)을 딤 단색으로 교체. 미사용 asset(comp_2/3) 제거.
+//  · 유지(뭉게구름 원복): 로켓(2,3,6,7), 연기 S1 점(8~39)+Right smoke(40,comp_1)+smoke base(43)
 import fs from 'fs'
 const IN = 'Space Ride.json'
 const OUT = 'src/lottie/sources/space-ride.json'
@@ -13,9 +13,8 @@ const hexToRgb = (h) => [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 
 const d = JSON.parse(fs.readFileSync(IN, 'utf8'))
 const comp0 = d.assets.find((a) => a.id === 'comp_0')
 
-// 삭제 대상 ind
-const DEL = new Set([40, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56])
-for (let i = 8; i <= 39; i++) DEL.add(i) // S 1 Outlines 점들
+// 삭제 대상 ind: 행성(달=깜빡 회색점 포함) + 별 + 보라 줄무늬
+const DEL = new Set([44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58])
 const before = comp0.layers.length
 comp0.layers = comp0.layers.filter((L) => !DEL.has(L.ind))
 
