@@ -51,11 +51,14 @@ export function generateStreakWeekRow(p: StreakWeekRowParams): LottieJSON {
   const fillDur = 28
   const rootOp = fillDur + Math.max(0, completed - 1) * delay + 16
 
-  const layers: Layer[] = []
+  // 렌더 순서(배열 앞=위): 체크 → 그라디언트 바 → 회색 원
+  const checks: Layer[] = []
+  const bars: Layer[] = []
+  const empties: Layer[] = []
 
-  // 1) 미완료 회색 원 (뒤)
+  // 미완료 회색 원 (맨 뒤)
   for (let i = completed; i < cells; i++) {
-    layers.push(
+    empties.push(
       shapeLayer({
         name: `empty-${i}`,
         shapes: [group([ellipse({ size: val([D, D], 2) }), fill(p.incompleteColor.hex, p.incompleteColor.opacity)], transform({ p: val([cellX(i), cy], 2) }), `empty-${i}`)],
@@ -66,7 +69,7 @@ export function generateStreakWeekRow(p: StreakWeekRowParams): LottieJSON {
   }
 
   if (completed > 0) {
-    // 2) 완료 구간: 연결된 그라디언트 스타디움 바 (좌→우로 차오름)
+    // 완료 구간: 연결된 그라디언트 스타디움 바 (좌→우로 차오름)
     const barLeft = cellX(0) - D / 2
     const barRight = cellX(completed - 1) + D / 2
     const barW = barRight - barLeft
@@ -74,7 +77,7 @@ export function generateStreakWeekRow(p: StreakWeekRowParams): LottieJSON {
       p.completeColor.mode === 'gradient' && p.completeColor.stops?.length
         ? gradientFill({ stops: p.completeColor.stops as GradientStop[], type: 1, start: [-barW / 2, 0], end: [barW / 2, 0], opacity: p.completeColor.opacity })
         : fill(p.completeColor.hex, p.completeColor.opacity)
-    layers.push(
+    bars.push(
       shapeLayer({
         name: 'fill-bar',
         shapes: [group([rect({ size: val([barW, D], 2), roundness: val(D / 2, 4) }), paint], transform(), 'bar')],
@@ -92,7 +95,7 @@ export function generateStreakWeekRow(p: StreakWeekRowParams): LottieJSON {
       }),
     )
 
-    // 3) 흰 체크 (완료 셀마다, 차오름에 맞춰 순차 등장)
+    // 흰 체크 (완료 셀마다, 차오름에 맞춰 순차 등장) — 바 위(맨 앞)
     const f = D / 44
     const pts = (cx: number): number[][] => [
       [cx - 5.56 * f, cy + 0.5 * f],
@@ -101,7 +104,7 @@ export function generateStreakWeekRow(p: StreakWeekRowParams): LottieJSON {
     ]
     for (let i = 0; i < completed; i++) {
       const t0 = Math.round((i / Math.max(1, completed)) * fillDur) + 4
-      layers.push(
+      checks.push(
         shapeLayer({
           name: `check-${i}`,
           shapes: [drawStroke({ points: pts(cellX(i)), hex: getToken('WHBK/WH'), width: 2.4 * f, startFrame: t0, endFrame: t0 + 8 })],
@@ -112,5 +115,5 @@ export function generateStreakWeekRow(p: StreakWeekRowParams): LottieJSON {
     }
   }
 
-  return root({ name: 'streak-week-row', w: W, h: H, op: rootOp, layers })
+  return root({ name: 'streak-week-row', w: W, h: H, op: rootOp, layers: [...checks, ...bars, ...empties] })
 }
