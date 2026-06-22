@@ -6,7 +6,7 @@
 import fs from 'fs'
 const IN = 'Space Ride.json'
 const OUT = 'src/lottie/sources/space-ride.json'
-const BG_HEX = '#2C2E32' // Mono/Neutral-800 (딤 단색)
+const BG_HEX = '#1E2939' // Tailwind gray-800 (= image-swipe 프리뷰 딤 배경 bg-gray-800)
 
 const hexToRgb = (h) => [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255]
 
