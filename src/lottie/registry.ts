@@ -14,25 +14,6 @@ import { generateStreakDayCheck, streakDayCheckDefaults, type StreakDayCheckPara
 import { generateStreakWeekRow, streakWeekRowDefaults, type StreakWeekRowParams } from './generators/streakWeekRow'
 import { generateStreakBroken, streakBrokenDefaults, type StreakBrokenParams } from './generators/streakBroken'
 import { generateCoinFlip, coinFlipDefaults, type CoinFlipParams } from './generators/coinFlip'
-import {
-  generateSuccessCheck, successCheckDefaults,
-  generateErrorCross, errorCrossDefaults,
-  generateWarningPulse, warningPulseDefaults,
-  generateHeartLike, heartLikeDefaults,
-  type FeedbackParams,
-} from './generators/feedback'
-import {
-  generateSpinnerOrbit, spinnerOrbitDefaults,
-  generateSkeletonShimmer, skeletonShimmerDefaults,
-  generatePullRefresh, pullRefreshDefaults,
-  type LoadingExtraParams,
-} from './generators/loadingExtra'
-import { generateFireworkBurst, fireworkBurstDefaults, type FireworkParams, generateEmojiRain, emojiRainDefaults, type EmojiRainParams } from './generators/confettiExtra'
-import {
-  generateFlameGrow, flameGrowDefaults, type FlameGrowParams,
-  generateStreakCountUp, streakCountUpDefaults, type StreakCountUpParams,
-  generateTrophyPop, trophyPopDefaults, type TrophyPopParams,
-} from './generators/streakExtra'
 import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from './generators/imageSwipe'
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
 
@@ -46,7 +27,7 @@ const TEXT_MODE_CONTROL = {
   ],
 }
 
-export type Category = 'Loading' | 'Push' | 'Confetti' | 'Image' | 'Streak' | 'Feedback'
+export type Category = 'Loading' | 'Push' | 'Confetti' | 'Image' | 'Streak'
 
 export interface AnimationDef {
   id: string
@@ -69,10 +50,9 @@ export const CATEGORY_DESC: Record<Category, string> = {
   Confetti: '컨페티/축하 애니메이션 그래픽 리소스입니다. 파티클 이미지를 교체하여 커스텀 컨페티를 만들 수 있습니다.',
   Image: '이미지 기반 애니메이션 리소스입니다. 사진을 업로드해 스와이프/스캔/플래시 촬영 효과를 만들 수 있습니다.',
   Streak: '스트릭(연속 기록) 동기부여에 사용되는 그래픽 리소스입니다. 불꽃, 카운트, 요일 체크 등을 수정할 수 있습니다.',
-  Feedback: '성공/오류/경고/좋아요 등 사용자 피드백 애니메이션입니다. 색상을 수정할 수 있습니다.',
 }
 
-export const CATEGORY_ORDER: Category[] = ['Push', 'Loading', 'Confetti', 'Image', 'Streak', 'Feedback']
+export const CATEGORY_ORDER: Category[] = ['Push', 'Loading', 'Confetti', 'Image', 'Streak']
 
 export const ANIMATIONS: AnimationDef[] = [
   {
@@ -333,158 +313,6 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
     ],
     generate: (p) => generateCoinFlip(p as CoinFlipParams),
-  },
-  {
-    id: 'flame-grow',
-    name: 'flame-grow',
-    category: 'Streak',
-    loop: true,
-    previewFrame: 24,
-    defaultParams: flameGrowDefaults,
-    controls: [
-      { type: 'color', key: 'flameColor', label: '불꽃 색상', allowGradient: true },
-      { type: 'slider', key: 'size', label: '크기', min: 80, max: 240, step: 1, unit: 'px' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateFlameGrow(p as FlameGrowParams),
-  },
-  {
-    id: 'streak-count-up',
-    name: 'streak-count-up',
-    category: 'Streak',
-    loop: false,
-    previewFrame: 40,
-    defaultParams: streakCountUpDefaults,
-    controls: [
-      { type: 'slider', key: 'count', label: '숫자', min: 1, max: 999, step: 1 },
-      { type: 'color', key: 'color', label: '배지 색' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateStreakCountUp(p as StreakCountUpParams),
-  },
-  {
-    id: 'trophy-pop',
-    name: 'trophy-pop',
-    category: 'Streak',
-    loop: false,
-    previewFrame: 40,
-    defaultParams: trophyPopDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '트로피 색' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateTrophyPop(p as TrophyPopParams),
-  },
-  {
-    id: 'firework-burst',
-    name: 'firework-burst',
-    category: 'Confetti',
-    loop: false,
-    previewFrame: 30,
-    defaultParams: fireworkBurstDefaults,
-    controls: [
-      { type: 'slider', key: 'count', label: '파티클 수', min: 6, max: 60, step: 1 },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateFireworkBurst(p as FireworkParams),
-  },
-  {
-    id: 'emoji-rain',
-    name: 'emoji-rain',
-    category: 'Confetti',
-    loop: true,
-    defaultParams: emojiRainDefaults,
-    controls: [
-      { type: 'imageList', key: 'images', label: '이미지(이모지)', count: 3 },
-      { type: 'slider', key: 'count', label: '개수', min: 4, max: 60, step: 1 },
-    ],
-    generate: (p) => generateEmojiRain(p as EmojiRainParams),
-  },
-  {
-    id: 'spinner-orbit',
-    name: 'spinner-orbit',
-    category: 'Loading',
-    loop: true,
-    defaultParams: spinnerOrbitDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '색상' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateSpinnerOrbit(p as LoadingExtraParams),
-  },
-  {
-    id: 'skeleton-shimmer',
-    name: 'skeleton-shimmer',
-    category: 'Loading',
-    loop: true,
-    defaultParams: skeletonShimmerDefaults,
-    controls: [
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateSkeletonShimmer(p as LoadingExtraParams),
-  },
-  {
-    id: 'pull-refresh',
-    name: 'pull-refresh',
-    category: 'Loading',
-    loop: true,
-    defaultParams: pullRefreshDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '색상' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generatePullRefresh(p as LoadingExtraParams),
-  },
-  {
-    id: 'success-check',
-    name: 'success-check',
-    category: 'Feedback',
-    loop: false,
-    previewFrame: 55,
-    defaultParams: successCheckDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '원 색상' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateSuccessCheck(p as FeedbackParams),
-  },
-  {
-    id: 'error-cross',
-    name: 'error-cross',
-    category: 'Feedback',
-    loop: false,
-    previewFrame: 60,
-    defaultParams: errorCrossDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '원 색상' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateErrorCross(p as FeedbackParams),
-  },
-  {
-    id: 'warning-pulse',
-    name: 'warning-pulse',
-    category: 'Feedback',
-    loop: true,
-    defaultParams: warningPulseDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '색상' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateWarningPulse(p as FeedbackParams),
-  },
-  {
-    id: 'heart-like',
-    name: 'heart-like',
-    category: 'Feedback',
-    loop: false,
-    previewFrame: 30,
-    defaultParams: heartLikeDefaults,
-    controls: [
-      { type: 'color', key: 'color', label: '하트 색' },
-      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateHeartLike(p as FeedbackParams),
   },
 ]
 
