@@ -13,6 +13,7 @@ import { generateCoinFlip, coinFlipDefaults, type CoinFlipParams } from './gener
 import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from './generators/imageSwipe'
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
 import { generateGradientFrame, gradientFrameDefaults, type GradientFrameParams } from './generators/gradientFrame'
+import { generateLoadingOrbit, loadingOrbitDefaults, type LoadingOrbitParams } from './generators/loadingOrbit'
 
 export type Category = 'Loading' | 'Confetti' | 'Streak' | 'Point' | 'Image'
 
@@ -92,6 +93,19 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'color', key: 'color', label: '색상', allowGradient: true },
     ],
     generate: (p) => generateProgressRing(p as ProgressRingParams),
+  },
+  {
+    id: 'loading-orbit',
+    name: 'loading-orbit',
+    category: 'Loading',
+    loop: true,
+    previewFrame: 100,
+    previewDim: true,
+    defaultParams: loadingOrbitDefaults,
+    controls: [
+      { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
+    ],
+    generate: (p) => generateLoadingOrbit(p as LoadingOrbitParams),
   },
   {
     id: 'confetti-burst',
