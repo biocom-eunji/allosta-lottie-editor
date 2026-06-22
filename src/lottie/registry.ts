@@ -232,6 +232,7 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'color', key: 'flameColor', label: '불꽃 색', allowGradient: true },
       { type: 'color', key: 'coreColor', label: '코어 색' },
       { type: 'color', key: 'glowColor', label: '글로우 색' },
+      { type: 'color', key: 'bloomColor', label: '블룸 색', visibleWhen: { key: 'mode', equals: 'receive' } },
       { type: 'slider', key: 'size', label: '크기', min: 48, max: 240, step: 1, unit: 'px' },
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
     ],

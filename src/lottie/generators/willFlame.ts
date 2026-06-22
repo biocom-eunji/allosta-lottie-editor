@@ -1,8 +1,27 @@
 import { anim, ellipse, fill, group, keyframes, radialGlow, resetInd, root, shapeLayer, transform, val } from '../builders'
-import { getToken } from '../../tokens/colors'
+import { getToken, hexToRgb } from '../../tokens/colors'
 import { WILL_CORE_CENTER, WILL_H, willCorePath, willOuterPaint, willOuterPath, willSparkPath } from './willFlameShape'
+import bloomSource from '../sources/bloom-burst.json'
 import type { ColorValue, Params } from '../controls'
-import type { LottieJSON, ShapeItem } from '../types'
+import type { Layer, LottieJSON, ShapeItem } from '../types'
+
+// 블룸(bloom-burst) open 상태 정렬 기준값 (scripts/process-bloom.mjs 측정)
+const BLOOM_OPEN_CENTER: [number, number] = [540, 539]
+const BLOOM_W = 800
+const BLOOM_SPREAD = 1.7 // 블룸 폭 = size * 1.7 (불꽃보다 크게 뒤로 퍼짐)
+
+/** 블룸 petal fill 을 토큰색으로 리컬러 (clone 된 레이어 대상) */
+function recolorBloom(layers: Layer[], hex: string) {
+  const [r, g, b] = hexToRgb(hex)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const walk = (it: any[]) => {
+    for (const s of it) {
+      if (s.ty === 'fl' && s.c) s.c = { a: 0, k: [r, g, b, 1], ix: s.c.ix || 4 }
+      if (s.ty === 'gr') walk(s.it)
+    }
+  }
+  for (const L of layers) if (L.shapes) walk(L.shapes)
+}
 
 // streak-will-flame — "의지의 불꽃"(파란 톤). streak-flame 과 동일 실루엣을 파랑으로.
 //  · icon    : 작은 크기, 약한 플리커 루프. (week-row saver 칸 / "의지의 불꽃 N개" 배지용)
@@ -17,6 +36,7 @@ export interface WillFlameParams extends Params {
   flameColor: ColorValue // 외곽 불꽃 (gradient 가능)
   coreColor: ColorValue // 내부 코어 하이라이트
   glowColor: ColorValue
+  bloomColor: ColorValue // 방사형 블룸 (receive 모드)
   size: number // px (불꽃 높이 기준)
   speed: number // 50~200 (%)
 }
@@ -35,6 +55,7 @@ export const willFlameDefaults: WillFlameParams = {
   },
   coreColor: { mode: 'solid', hex: getToken('Semantic/Yellow-50'), opacity: 100 },
   glowColor: { mode: 'solid', hex: getToken('Accent/Light Blue-400'), opacity: 100 },
+  bloomColor: { mode: 'solid', hex: getToken('Accent/Light Blue-300'), opacity: 100 },
   size: 150,
   speed: 100,
 }
@@ -127,35 +148,64 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
     return root({ name: 'streak-will-flame', w: W, h: H, op: P, layers: [flameLayer, glow] })
   }
 
-  // ── receive: one-shot 팝인(ease-out-back 오버슈트) + 살짝 위로 settle + 글로우 ──
+  // ── receive: 블룸 퍼짐 + 불꽃 팝인(ease-out-back) + 글로우. one-shot ──
   const r = (n: number) => Math.round(n * sf)
-  const settle = r(30)
-  const op = r(84)
-  const body = willFlameBody({ flameColor: p.flameColor, coreColor: p.coreColor, scl, period: op, flicker: 0.6 })
+  const DF = r(6) // 블룸보다 불꽃이 살짝 늦게 등장(stagger)
+  const rd = (n: number) => DF + r(n) // 불꽃/글로우 기준 시간
+  const settle = rd(30)
 
+  // 블룸 precomp (뒤): open center 를 불꽃 중심에 정렬, 크기는 size 연동
+  const bloomScl = ((p.size * BLOOM_SPREAD) / BLOOM_W) * 100
+  const bloomLayers = structuredClone(bloomSource.layers) as Layer[]
+  recolorBloom(bloomLayers, p.bloomColor.hex)
+  const bloomOp = Math.round(bloomSource.op * sf)
+  const op = Math.max(bloomOp, rd(84))
+
+  const bloomLayer: Layer = {
+    ddd: 0,
+    ind: 90,
+    ty: 0,
+    nm: 'bloom',
+    refId: 'bloom',
+    sr: sf, // 속도 보정(시간 스트레치)
+    ks: transform({
+      a: val([BLOOM_OPEN_CENTER[0], BLOOM_OPEN_CENTER[1]], 1),
+      p: val([cx, cy], 2),
+      s: val([bloomScl, bloomScl], 6),
+    }),
+    ao: 0,
+    w: bloomSource.w,
+    h: bloomSource.h,
+    ip: 0,
+    op,
+    st: 0,
+    bm: 0,
+  }
+
+  const body = willFlameBody({ flameColor: p.flameColor, coreColor: p.coreColor, scl, period: op, flicker: 0.6 })
   const flameLayer = shapeLayer({
     name: 'will-flame',
     shapes: [
       group([body], transform({
         // 살짝 아래에서 위로 settle
         p: anim(keyframes([
-          { t: 0, s: [cx, cy + 10], ease: 'out' },
-          { t: r(18), s: [cx, cy - 4], ease: 'out' },
+          { t: DF, s: [cx, cy + 10], ease: 'out' },
+          { t: rd(18), s: [cx, cy - 4], ease: 'out' },
           { t: settle, s: [cx, cy], ease: 'in-out' },
         ]), 2),
         // scale 0 → 오버슈트(톡) → 정착 (ease-out-back)
         s: anim(keyframes([
-          { t: 0, s: [0, 0], ease: 'out' },
-          { t: r(12), s: [114, 108], ease: 'out' }, // 오버슈트(세로 더 늘려 "톡")
-          { t: r(20), s: [95, 103], ease: 'in-out' },
+          { t: DF, s: [0, 0], ease: 'out' },
+          { t: rd(12), s: [114, 108], ease: 'out' },
+          { t: rd(20), s: [95, 103], ease: 'in-out' },
           { t: settle, s: [100, 100], ease: 'in-out' },
         ]), 6),
       }), 'pos'),
     ],
     ks: transform({
       o: anim(keyframes([
-        { t: 0, s: [0], ease: 'out' },
-        { t: r(8), s: [100], ease: 'out' },
+        { t: DF, s: [0], ease: 'out' },
+        { t: rd(8), s: [100], ease: 'out' },
       ]), 11),
     }),
     ip: 0,
@@ -170,16 +220,16 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
         transform({
           p: val([cx, cy + p.size * 0.06], 2),
           o: anim(keyframes([
-            { t: 0, s: [0], ease: 'out' },
-            { t: r(12), s: [56], ease: 'in-out' }, // 팝인과 함께 확 퍼짐
-            { t: r(34), s: [34], ease: 'in-out' },
-            { t: r(60), s: [44], ease: 'in-out' },
+            { t: DF, s: [0], ease: 'out' },
+            { t: rd(12), s: [56], ease: 'in-out' },
+            { t: rd(34), s: [34], ease: 'in-out' },
+            { t: rd(60), s: [44], ease: 'in-out' },
             { t: op, s: [34], ease: 'in-out' },
           ]), 11),
           s: anim(keyframes([
-            { t: 0, s: [50, 50], ease: 'out' },
-            { t: r(16), s: [108, 108], ease: 'out' },
-            { t: r(34), s: [96, 96], ease: 'in-out' },
+            { t: DF, s: [50, 50], ease: 'out' },
+            { t: rd(16), s: [108, 108], ease: 'out' },
+            { t: rd(34), s: [96, 96], ease: 'in-out' },
             { t: op, s: [100, 100], ease: 'in-out' },
           ]), 6),
         }),
@@ -190,6 +240,13 @@ export function generateWillFlame(p: WillFlameParams): LottieJSON {
     op,
   })
 
-  // z순서(배열 앞=위): 불꽃 > 글로우. (블룸은 2단계에서 글로우와 불꽃 사이에 삽입)
-  return root({ name: 'streak-will-flame', w: W, h: H, op, layers: [flameLayer, glow] })
+  // z순서(배열 앞=위): 불꽃 > 블룸 > 글로우
+  return root({
+    name: 'streak-will-flame',
+    w: W,
+    h: H,
+    op,
+    layers: [flameLayer, bloomLayer, glow],
+    assets: [{ id: 'bloom', layers: bloomLayers }],
+  })
 }
