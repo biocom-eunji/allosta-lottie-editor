@@ -250,7 +250,6 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'color', key: 'coreColor', label: '코어 색상' },
       { type: 'color', key: 'glowColor', label: '글로우 색상' },
       { type: 'slider', key: 'glowIntensity', label: '글로우 강도', min: 0, max: 100, step: 1, unit: '%' },
-      { type: 'slider', key: 'sideFlames', label: '곁불꽃 개수', min: 0, max: 2, step: 1 },
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
       { type: 'slider', key: 'size', label: '크기', min: 80, max: 240, step: 1, unit: 'px' },
     ],
