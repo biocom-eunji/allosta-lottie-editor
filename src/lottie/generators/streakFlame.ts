@@ -2,7 +2,7 @@ import { anim, ellipse, fill, group, keyframes, radialGlow, resetInd, root, shap
 import { getToken } from '../../tokens/colors'
 import { FLAME_H, FLAME_INNER_POS, flameInnerPath, flameOuterPath, outerPaint } from './flameShape'
 import type { ColorValue, Params } from '../controls'
-import type { Layer, LottieJSON } from '../types'
+import type { LottieJSON } from '../types'
 
 // streak-flame — 첨부 SVG 불꽃 형태 + 깜빡임(flicker) + 글로우. (전부 shape+keyframe, RN 안전)
 
@@ -44,12 +44,9 @@ export function generateStreakFlame(p: StreakFlameParams): LottieJSON {
   const cy = H / 2
   const scl = (p.size / FLAME_H) * 100
 
-  const layers: Layer[] = []
-
   // 글로우 (불꽃 뒤, radial — blur 미사용)
   const glowSize = p.size * 2.2
-  layers.push(
-    shapeLayer({
+  const glowLayer = shapeLayer({
       name: 'glow',
       shapes: [
         group(
@@ -72,8 +69,7 @@ export function generateStreakFlame(p: StreakFlameParams): LottieJSON {
       ],
       ip: 0,
       op: P,
-    }),
-  )
+    })
 
   // 불꽃 (외곽 + 내부) — flicker: 세로 스트레치 호흡 + 좌우 미세 sway
   const flame = group(
@@ -111,7 +107,8 @@ export function generateStreakFlame(p: StreakFlameParams): LottieJSON {
     }),
     'flame',
   )
-  layers.push(shapeLayer({ name: 'flame', shapes: [flame], ip: 0, op: P }))
+  const flameLayer = shapeLayer({ name: 'flame', shapes: [flame], ip: 0, op: P })
 
-  return root({ name: 'streak-flame', w: W, h: H, op: P, layers })
+  // 불꽃이 앞(위), 글로우가 뒤(아래) — index 0 = 최상단
+  return root({ name: 'streak-flame', w: W, h: H, op: P, layers: [flameLayer, glowLayer] })
 }
