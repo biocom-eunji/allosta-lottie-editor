@@ -4,7 +4,6 @@ import { gradientLoaderDefaults, generateGradientLoader, type GradientLoaderPara
 import { rippleDefaults, generateRipple, type RippleParams } from './generators/ripple'
 import { loader3dotDefaults, generateLoader3Dot, type Loader3DotParams } from './generators/loader3dot'
 import { progressRingDefaults, generateProgressRing, type ProgressRingParams } from './generators/progressRing'
-import { squareConfettiDefaults, generateSquareConfetti, type SquareConfettiParams } from './generators/squareConfetti'
 import { confettiStarBurstDefaults, generateConfettiStarBurst, type ConfettiStarBurstParams } from './generators/confettiStarBurst'
 import { confettiRainDefaults, generateConfettiRain, type ConfettiRainParams } from './generators/confettiRain'
 import { generatePushToast, pushSoloSlideUpDefaults, type PushToastParams } from './generators/pushToast'
@@ -105,31 +104,6 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'color', key: 'color', label: '색상', allowGradient: true },
     ],
     generate: (p) => generateProgressRing(p as ProgressRingParams),
-  },
-  {
-    id: 'square-confetti',
-    name: 'square-confetti',
-    category: 'Confetti',
-    loop: false,
-    previewFrame: 28,
-    defaultParams: squareConfettiDefaults,
-    controls: [
-      {
-        type: 'segmented',
-        key: 'mode',
-        label: '편집 모드',
-        options: [
-          { value: 'color', label: '컬러 편집' },
-          { value: 'image', label: '이미지 교체' },
-        ],
-      },
-      { type: 'color', key: 'colorA', label: 'Color A', hideOpacity: true, visibleWhen: { key: 'mode', equals: 'color' } },
-      { type: 'color', key: 'colorB', label: 'Color B', hideOpacity: true, visibleWhen: { key: 'mode', equals: 'color' } },
-      { type: 'color', key: 'colorC', label: 'Color C', hideOpacity: true, visibleWhen: { key: 'mode', equals: 'color' } },
-      { type: 'imageList', key: 'images', label: '파티클 이미지', count: 3, visibleWhen: { key: 'mode', equals: 'image' } },
-      { type: 'slider', key: 'count', label: '파티클 수', min: 4, max: 40, step: 1, caption: (v) => `${v}개 파티클` },
-    ],
-    generate: (p) => generateSquareConfetti(p as SquareConfettiParams),
   },
   {
     id: 'confetti-star-burst',
