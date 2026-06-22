@@ -9,7 +9,6 @@ import { confettiRainDefaults, generateConfettiRain, type ConfettiRainParams } f
 import { generateStreakFlame, streakFlameDefaults, type StreakFlameParams } from './generators/streakFlame'
 import { generateStreakDayCheck, streakDayCheckDefaults, type StreakDayCheckParams } from './generators/streakDayCheck'
 import { generateStreakWeekRow, streakWeekRowDefaults, type StreakWeekRowParams } from './generators/streakWeekRow'
-import { generateStreakBroken, streakBrokenDefaults, type StreakBrokenParams } from './generators/streakBroken'
 import { generateCoinFlip, coinFlipDefaults, type CoinFlipParams } from './generators/coinFlip'
 import { generateImageSwipe, imageSwipeDefaults, type ImageSwipeParams } from './generators/imageSwipe'
 import { generateImageScan, imageScanDefaults, type ImageScanParams } from './generators/imageScan'
@@ -217,19 +216,6 @@ export const ANIMATIONS: AnimationDef[] = [
       { type: 'slider', key: 'staggerDelay', label: 'Stagger 딜레이', min: 0, max: 20, step: 1, unit: 'f' },
     ],
     generate: (p) => generateStreakWeekRow(p as StreakWeekRowParams),
-  },
-  {
-    id: 'streak-broken',
-    name: 'streak-broken',
-    category: 'Streak',
-    defaultParams: streakBrokenDefaults,
-    loop: false,
-    previewFrame: 12,
-    controls: [
-      { type: 'color', key: 'color', label: '색상' },
-      { type: 'slider', key: 'fadeSpeed', label: '페이드 속도', min: 50, max: 200, step: 5, unit: '%' },
-    ],
-    generate: (p) => generateStreakBroken(p as StreakBrokenParams),
   },
   {
     id: 'coin-flip',
