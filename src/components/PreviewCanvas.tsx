@@ -78,7 +78,7 @@ export function PreviewCanvas({ json, loop = true, dim = false }: Props) {
     <div className="flex h-full w-full flex-col items-center justify-center gap-6">
       <div
         ref={containerRef}
-        className={`flex aspect-square w-full max-w-md items-center justify-center rounded-3xl ${dim ? 'bg-gray-800' : 'bg-gray-100'}`}
+        className={`flex aspect-square w-full max-w-md items-center justify-center overflow-hidden rounded-3xl ${dim ? 'bg-gray-800' : 'bg-gray-100'}`}
       />
       <div className="flex w-full max-w-md items-center gap-3">
         <button

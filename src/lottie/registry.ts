@@ -290,6 +290,7 @@ export const ANIMATIONS: AnimationDef[] = [
     category: 'Space',
     loop: true,
     previewFrame: 17,
+    previewDim: true,
     defaultParams: spaceRideDefaults,
     controls: [
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
@@ -302,6 +303,7 @@ export const ANIMATIONS: AnimationDef[] = [
     category: 'Space',
     loop: true,
     previewFrame: 55,
+    previewDim: true,
     defaultParams: rocketDefaults,
     controls: [
       { type: 'slider', key: 'speed', label: '속도', min: 50, max: 200, step: 5, unit: '%' },
